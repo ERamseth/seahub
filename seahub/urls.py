@@ -343,3 +343,10 @@ if TRAFFIC_STATS_ENABLED:
     urlpatterns += patterns('',
         url(r'^sys/trafficadmin/$', sys_traffic_admin, name='sys_trafficadmin'),
     )
+
+# PingAn UM SSO
+from seahub.api2.endpoints.obtain_pa_sso_token import ObtainPASSOToken
+urlpatterns += patterns(
+    '',
+    url(r'^passo/auth-token/', ObtainPASSOToken.as_view())
+)
